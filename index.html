@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+
+    <form action="" method="post">
+        <label for="name">Name:</label>
+        <input id="name" placeholder="Enter your name" onkeydown="moveToNextInput(event, 'email')" type="text">
+        
+        <label for="email">Email:</label>
+        <input id="email" type="email" onkeydown="moveToNextInput(event, 'message')" placeholder="Enter your Email ID">
+        
+        <label for="message">Message:</label>
+        <textarea style="margin-bottom: 22px;" id="message" rows="4" onkeydown="moveToNextInput(event, 'submitBtn')"></textarea>
+
+        <input onkeydown="SubmitForm()" type="submit" id="submitBtn" value="Submit">
+    </form>
+</div>
+
+    <script>
+        function moveToNextInput(event, nextInputId) {
+            if (event.key === "Enter" ) {
+                event.preventDefault();
+
+                var nextInput = document.getElementById(nextInputId);
+
+                if (nextInput) {
+                    nextInput.focus();
+                }
+            }
+        }
+
+        function SubmitForm() {
+            
+            var nameValue = document.getElementById('name').value;
+            var emailValue = document.getElementById('email').value;
+            var messageValue = document.getElementById('message').value;
+
+            alert('Name: ' + nameValue + '\nEmail: ' + emailValue + '\nMessage: ' + messageValue);
+        }
+    </script>
+
+</div>
+</body>
+</html>
